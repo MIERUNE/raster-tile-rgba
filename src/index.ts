@@ -1,1 +1,2 @@
-export { default as TerrainRGB } from './terrainrgb'
+import { RasterTileRgba } from './rastertilergba';
+export default RasterTileRgba;

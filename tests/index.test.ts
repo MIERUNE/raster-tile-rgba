@@ -1,62 +1,18 @@
-import {TerrainRGB} from '../src/index';
+import { RasterTileRgba } from '../src/rastertilergba';
 
 describe('PNG tilesets', (): void => {
-  const url = 'https://wasac.github.io/rw-terrain/tiles/{z}/{x}/{y}.png';
-  const trgb = new TerrainRGB(url, 512)
+    const rtRgba = new RasterTileRgba(
+        'https://disaportal.gsi.go.jp/data/raster/01_flood_l2_shinsuishin/{z}/{x}/{y}.png',
+    );
 
-  test('30.48535, -2.03089 ', async() => {
-    const elevation = await trgb.getElevation([30.48535, -2.03089], 15);
-    expect(elevation).toEqual(1347);
-  });
-
-  test('30.30905, -2.01723', async() => {
-    const elevation = await trgb.getElevation([30.30905, -2.01723], 15);
-    expect(elevation).toEqual(1586);
-  });
-
-  test('29.46279, -2.12171', async() => {
-    const elevation = await trgb.getElevation([29.46279, -2.12171], 15);
-    expect(elevation).toEqual(1997);
-  });
-
-  test('29.76760, -2.68676', async() => {
-    const elevation = await trgb.getElevation([29.76760, -2.68676], 15);
-    expect(elevation).toEqual(1710);
-  });
-
-  test('30.78230, -2.25379', async() => {
-    const elevation = await trgb.getElevation([30.78230, -2.25379], 15);
-    expect(elevation).toEqual(1392);
-  });
-})
-
-describe('WEBP tilesets', (): void => {
-  const url = 'https://wasac.github.io/rw-terrain-webp/tiles/{z}/{x}/{y}.webp';
-  const trgb = new TerrainRGB(url, 512)
-
-  test('30.48535, -2.03089 ', async() => {
-    const elevation = await trgb.getElevation([30.48535, -2.03089], 15);
-    expect(elevation).toEqual(1347);
-  });
-
-  test('30.30905, -2.01723', async() => {
-    const elevation = await trgb.getElevation([30.30905, -2.01723], 15);
-    expect(elevation).toEqual(1586);
-  });
-
-  test('29.46279, -2.12171', async() => {
-    const elevation = await trgb.getElevation([29.46279, -2.12171], 15);
-    expect(elevation).toEqual(1997);
-  });
-
-  test('29.76760, -2.68676', async() => {
-    const elevation = await trgb.getElevation([29.76760, -2.68676], 15);
-    expect(elevation).toEqual(1710);
-  });
-
-  test('30.78230, -2.25379', async() => {
-    const elevation = await trgb.getElevation([30.78230, -2.25379], 15);
-    expect(elevation).toEqual(1392);
-  });
-  
-})
+    test('139.363375, 35.354857 ', async () => {
+        const rgba = await rtRgba.getRgba([139.363375, 35.354857], 17);
+        if (!rgba) {
+            console.log(`can't get a tile`);
+            return;
+        }
+        expect(rgba[0]).toEqual(255);
+        expect(rgba[1]).toEqual(216);
+        expect(rgba[2]).toEqual(192);
+    });
+});
