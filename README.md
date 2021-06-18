@@ -7,7 +7,7 @@ This module is to get a pixel value from RasterTile by longitude and latitude.
 ## Install
 
 ```
-npm install raster-tile-rgba
+npm install git+https://github.com/MIERUNE/raster-tile-rgba.git
 ```
 
 ## Usage
