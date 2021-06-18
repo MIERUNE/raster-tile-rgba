@@ -1,4 +1,4 @@
-# terrain-rgb
+# raster-tile-rgba
 
 ![GitHub](https://img.shields.io/github/license/MIERUNE/raster-tile-rgba)
 
